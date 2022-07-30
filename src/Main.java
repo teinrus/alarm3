@@ -37,16 +37,22 @@ public class Main {
                 if ((numProduct + 1) > goods.length || numProduct < 0 || (countProduct[numProduct] + count) < 0) {
                     System.out.println("Вы ввели некорректные данные");
                     continue;
+
                 } else if (count == 0) {
                     countProduct[numProduct] = 0;
+
                 } else if (countProduct[numProduct] > 0) {
                     countProduct[numProduct] += count;
                 } else {
                     countProduct[numProduct] = count;
                 }
-                costProduct[numProduct] = countProduct[numProduct] * prices[numProduct];
+                if (countProduct[numProduct]%3 == 0){
+                    costProduct[numProduct] = (countProduct[numProduct]/3*2)*prices[numProduct];
+                } else {
+                    costProduct[numProduct] = ((countProduct[numProduct]-countProduct[numProduct]%3)/3*2) * prices[numProduct]+
+                            countProduct[numProduct]%3 * prices[numProduct];
+                }
             }
-
         }
         int sum = 0;
         for (int totalSum : costProduct) {
