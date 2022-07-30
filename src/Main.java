@@ -34,12 +34,13 @@ public class Main {
                     System.out.println("Введены некорректные данные: необходимо ввести числовые значения");
                     continue;
                 }
-                if ((numProduct + 1) > goods.length || numProduct < 0 || count < 0) {
+                if ((numProduct + 1) > goods.length || numProduct < 0 || (countProduct[numProduct] + count) < 0) {
                     System.out.println("Вы ввели некорректные данные");
                     continue;
 
-                }else if (count == 0) {
-                    countProduct[numProduct]=0;
+                } else if (count == 0) {
+                    countProduct[numProduct] = 0;
+
                 } else if (countProduct[numProduct] > 0) {
                     countProduct[numProduct] += count;
                 } else {
